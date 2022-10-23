@@ -38,7 +38,6 @@ const routes: Routes = [
       },
       {
         path: 'login',
-        pathMatch: 'full',
         loadChildren: loadloginModule
       }
     ]
