@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,6 +9,7 @@ import { FooterComponent } from './shared/layouts/footer/footer.component';
 import { HeaderComponent } from './shared/layouts/header/header.component';
 import { LayoutComponent } from './shared/layouts/layout/layout.component';
 import { SharedModule } from './shared/shared.module';
+import { MaterialModule } from './modules/material/material/material.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

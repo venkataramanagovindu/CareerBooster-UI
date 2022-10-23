@@ -1,1 +1,37 @@
-<p>home works!</p>
+<div>
+    <mat-carousel
+      timings="250ms ease-in"
+      [autoplay]="true"
+      color="accent"
+      maxWidth="auto"
+      [loop]="true"
+      [hideArrows]="false"
+      [hideIndicators]="false"
+      [useKeyboard]="true" 
+      [useMouseWheel]="false"
+      orientation="ltr"
+    >
+      <mat-carousel-slide
+        #matCarouselSlide
+        image='assets/demo.png'
+        overlayColor="#00000040"
+        [hideOverlay]="false"
+      ></mat-carousel-slide>
+      <mat-carousel-slide
+      #matCarouselSlide
+      image='assets/demo.png'
+      overlayColor="#00000040"
+      [hideOverlay]="false"
+    ></mat-carousel-slide>
+    <mat-carousel-slide
+    #matCarouselSlide
+    image='assets/demo.png'
+    overlayColor="#00000040"
+    [hideOverlay]="false"
+  ></mat-carousel-slide>
+    </mat-carousel>
+  </div>
+
+  <mat-slider aria-label="unit(s)"></mat-slider>
+
+  <button mat-button color="primary">Primary</button>

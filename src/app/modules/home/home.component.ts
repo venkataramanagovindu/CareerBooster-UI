@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatCarousel, MatCarouselComponent} from 'ng-mat-carousel';
 
 @Component({
   selector: 'app-home',
