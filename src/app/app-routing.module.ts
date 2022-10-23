@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticationGuardGuard } from './@core/guard/authentication-guard.guard';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/home/home.component';
 import { HomeModule } from './modules/home/home.module';
+import { LoginModule } from './modules/login/login.module';
 import { MycourcesModule } from './modules/mycources/mycources.module';
 
 export function loadHomeModule(){
@@ -10,6 +12,9 @@ export function loadHomeModule(){
 }
 export function loadMyCoursesModule(){
   return MycourcesModule;
+}
+export function loadloginModule(){
+  return LoginModule;
 }
 
 const routes: Routes = [
@@ -24,11 +29,17 @@ const routes: Routes = [
       {
         path: 'home',
         pathMatch: 'full',
-        loadChildren: loadHomeModule
+        loadChildren: loadHomeModule,
+        canActivate:[AuthenticationGuardGuard]
       },
       {
         path: 'my-courses',
         loadChildren: loadMyCoursesModule
+      },
+      {
+        path: 'login',
+        pathMatch: 'full',
+        loadChildren: loadloginModule
       }
     ]
   }];
