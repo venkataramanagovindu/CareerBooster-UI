@@ -1,6 +1,19 @@
-<a [routerLink]="['/home']">
+<!-- <a [routerLink]="['/home']">
     Home
   </a>
 <a [routerLink]="['/my-courses']">
     Course
-  </a>
+  </a> -->
+
+
+<mat-toolbar class="text-center">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [routerLink]="['/home']">
+    Home
+  </button>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+    [routerLink]="['/my-courses']">
+    Course
+  </button>
+
+</mat-toolbar>
