@@ -10,6 +10,8 @@ import { HeaderComponent } from './shared/layouts/header/header.component';
 import { LayoutComponent } from './shared/layouts/layout/layout.component';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './modules/material/material.module';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { MaterialModule } from './modules/material/material.module';
     SharedModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

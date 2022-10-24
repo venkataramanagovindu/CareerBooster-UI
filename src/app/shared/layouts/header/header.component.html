@@ -6,7 +6,7 @@
   </a> -->
 
 
-<mat-toolbar class="text-center">
+<mat-toolbar *ngIf="this._authservice.isLoggedIn()" class="text-center">
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [routerLink]="['/home']">
     Home
   </button>
