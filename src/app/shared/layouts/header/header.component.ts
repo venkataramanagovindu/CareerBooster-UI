@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
     this._router = router;
     this._activatedRoute = activatedRoute;
     this._authservice = authService;
-    debugger
+    // debugger
      console.log( window.location.href);
     console.log(router.url)
     this.showHeader = !window?.location.href.includes('login');
@@ -39,6 +39,11 @@ export class HeaderComponent implements OnInit {
       console.log( this._activatedRoute);
     })
     console.log(this._router);
+  }
+
+  logout(){
+    this._authservice.logout();
+    this._router.navigateByUrl('login');
   }
 
 }

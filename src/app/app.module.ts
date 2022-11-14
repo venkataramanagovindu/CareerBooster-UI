@@ -12,10 +12,12 @@ import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './modules/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { CourseComponent } from './modules/course/course.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,

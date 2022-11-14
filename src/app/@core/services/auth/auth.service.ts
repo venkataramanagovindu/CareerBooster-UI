@@ -9,10 +9,14 @@ export class AuthService {
   private isUserLoggedIn: boolean = false;
 
   public isLoggedIn():boolean{
-    return this.isUserLoggedIn;
+    return localStorage.getItem('isLoggedIn') == 'true'? true : false;
   }
 
   public setLogin(){
     this.isUserLoggedIn = true;
+    localStorage.setItem('isLoggedIn', 'true');
+  }
+  public logout(){
+    localStorage.clear();
   }
 }

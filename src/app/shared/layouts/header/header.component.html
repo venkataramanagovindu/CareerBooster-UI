@@ -6,22 +6,44 @@
   </a> -->
 
 
-<mat-toolbar *ngIf="this._authservice.isLoggedIn()" class="text-center">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [routerLink]="['/home']">
-    Home
-  </button>
-  <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+<mat-toolbar class="text-center">
+  <span *ngIf="this._authservice.isLoggedIn()" >
+    <button  mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [routerLink]="['/home']">
+      Home
+    </button>
+    <span class="example-spacer"></span>
+    <button  mat-icon-button class="example-icon" aria-label="Example icon-button with heart icon"
+      [routerLink]="['/courses']">
+      Courses
+    </button>
+    <span class="example-spacer"></span>
+    <button  mat-icon-button class="example-icon" aria-label="Example icon-button with heart icon"
     [routerLink]="['/my-courses']">
-    Course
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [routerLink]="['/login']">
-    Login
-  </button>
-  <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
-    [routerLink]="['/login/register']">
-    Register
-  </button>
+      My Course
+    </button>
+    <span class="example-spacer"></span>
+    <!-- <div style="justify-self: end !important;"> -->
+      <button (click)="logout()" style="margin-left: 25px;" mat-icon-button class="example-icon" aria-label="Example icon-button with heart icon">
+        Logout
+      </button>
+      <!-- <span>Logout</span> -->
+    <!-- </div> -->
+
+  </span>
+
+  <span *ngIf="!this._authservice.isLoggedIn()" >
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [routerLink]="['/login']">
+      Login
+    </button>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with heart icon"
+      [routerLink]="['/login/register']">
+      Register
+    </button>
+  </span>
+
+
 
 </mat-toolbar>
+
+

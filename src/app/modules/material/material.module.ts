@@ -6,6 +6,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 const modules = [
   MatCardModule,
@@ -13,6 +15,8 @@ const modules = [
     MatButtonModule,
     ReactiveFormsModule,
     MatToolbarModule,
+    MatIconModule,
+    MatGridListModule
 ];
 
 @NgModule({
