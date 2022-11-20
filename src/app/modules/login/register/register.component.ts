@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/@core/services/user/user.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { UserService } from 'src/app/@core/services/user/user.service';
 })
 export class RegisterComponent implements OnInit {
   private _userService: UserService;
+  private _router: Router;
 
   form: FormGroup = new FormGroup({
     firstName: new FormControl(''),
@@ -25,6 +27,7 @@ export class RegisterComponent implements OnInit {
       this._userService.register(this.form.getRawValue()).subscribe({
         next: (data) => {
           console.log(data);
+          this._router.navigateByUrl('login');
         },
         error: (error) => {
           console.log(error);
@@ -35,8 +38,9 @@ export class RegisterComponent implements OnInit {
   @Input() error: string | null | undefined;
 
   @Output() submitEM = new EventEmitter();
-  constructor(userService: UserService) {
+  constructor(userService: UserService, router: Router) {
     this._userService = userService;
+    this._router = router;
    }
 
   ngOnInit(): void {
