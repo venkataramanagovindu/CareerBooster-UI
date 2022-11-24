@@ -1,0 +1,15 @@
+<mat-card class="example-card" *ngIf="course">
+    <mat-card-header>
+      <mat-card-title>{{course.name}}</mat-card-title>
+      <mat-card-subtitle>{{course.subTitle}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="'../../../../assets/' + course.imagepath" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>{{course.courseDescription}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+  

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { CoreURL } from '../core.url';
+import { Observable } from 'rxjs';
+import { LoginModel } from '../../models/login.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,8 +13,8 @@ export class UserService {
     this._httpClient = httpClient;
   }
 
-  login(email: string, password: string){
-      return this._httpClient.get<any>(CoreURL.LOGIN + '/' + email + '/' + password)
+  login(email: string, password: string): Observable<any>{
+      return this._httpClient.get(CoreURL.LOGIN + '/' + email + '/' + password);
   }
 
   register(obj: any){

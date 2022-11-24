@@ -19,4 +19,8 @@ export class AuthService {
   public logout(){
     localStorage.clear();
   }
+
+  public setUserId(userId: string){
+    localStorage.setItem('userId', userId);
+  }
 }

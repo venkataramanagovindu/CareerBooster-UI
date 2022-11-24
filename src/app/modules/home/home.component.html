@@ -39,83 +39,25 @@
   
 
 <mat-grid-list cols="4" rowHeight="500">
-  <mat-grid-tile>
-  <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Android Developer Course</mat-card-title>
-        <mat-card-subtitle>Swift</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="../../../assets/android develoiper.png" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore, dicta quis, nostrum molestias consectetur nesciunt, molestiae ipsa adipisci dolor impedit. Perferendis, nihil corporis repellendus sequi voluptatum qui esse libero!
-        </p>
-      </mat-card-content>
-      <!-- <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions> -->
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile>
-      <mat-card class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Web Development</mat-card-title>
-            <mat-card-subtitle>Html, Css</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="../../../assets/backend developer.png" alt="Photo of a Shiba Inu">
-          <mat-card-content>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore, dicta quis, nostrum molestias consectetur nesciunt, molestiae ipsa adipisci dolor impedit. Perferendis, nihil corporis repellendus sequi voluptatum qui esse libero!
-            </p>
-          </mat-card-content>
-          <!-- <mat-card-actions>
-            <button mat-button>LIKE</button>
-            <button mat-button>SHARE</button>
-          </mat-card-actions> -->
-        </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile>
-      <mat-card class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>FrontEnd Development</mat-card-title>
-            <mat-card-subtitle>Html, Css, Js</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="../../../assets/front end.jpeg" alt="Photo of a Shiba Inu">
-          <mat-card-content>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore, dicta quis, nostrum molestias consectetur nesciunt, molestiae ipsa adipisci dolor impedit. Perferendis, nihil corporis repellendus sequi voluptatum qui esse libero!
-            </p>
-          </mat-card-content>
-          <!-- <mat-card-actions>
-            <button mat-button>LIKE</button>
-            <button mat-button>SHARE</button>
-          </mat-card-actions> -->
-        </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile>
-      <mat-card class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>DataBase Design</mat-card-title>
-            <mat-card-subtitle>DBMS</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="../../../assets/data base engineer.png" alt="Photo of a Shiba Inu">
-          <mat-card-content>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore, dicta quis, nostrum molestias consectetur nesciunt, molestiae ipsa adipisci dolor impedit. Perferendis, nihil corporis repellendus sequi voluptatum qui esse libero!
-            </p>
-          </mat-card-content>
-          <!-- <mat-card-actions>
-            <button mat-button>LIKE</button>
-            <button mat-button>SHARE</button>
-          </mat-card-actions> -->
-        </mat-card>
-  </mat-grid-tile>
-  
+  <mat-grid-tile *ngFor="let course of courses">
+    <mat-card [routerLink]="['../', 'courses', course.courseId]" class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar  class="example-header-image"></div>
+          <mat-card-title>{{course.name}}</mat-card-title>
+          <mat-card-subtitle>{{course.subTitle}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="'../../../assets/' + course.imagepath" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p style="text-overflow: ellipsis;">
+            {{course.courseDescription}}
+          </p>
+        </mat-card-content>
+        <!-- <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions> -->
+      </mat-card>
+</mat-grid-tile>
 </mat-grid-list>
 
 

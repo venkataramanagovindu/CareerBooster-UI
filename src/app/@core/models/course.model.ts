@@ -1,9 +1,9 @@
 export class Course{
-    public courseId!: Number;
+    public courseId!: number;
     public name!: string;
     public subTitle!: string;
-    public courseTypeId!: Number;
+    public courseTypeId!: number;
     public courseDescription!: string;
-    public courseCategoryId!: Number;
+    public courseCategoryId!: number;
     public imagepath!: string;
 }

@@ -28,4 +28,8 @@ export class CourseComponent implements OnInit {
     });
   }
 
+  addCourse(courseId: number){
+    
+  }
+
 }

@@ -13,11 +13,13 @@ import { MaterialModule } from './modules/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { CourseComponent } from './modules/course/course.component';
+import { CourseDetailComponent } from './modules/course/course-detail/course-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CourseComponent
+    CourseComponent,
+    CourseDetailComponent
   ],
   imports: [
     BrowserModule,
