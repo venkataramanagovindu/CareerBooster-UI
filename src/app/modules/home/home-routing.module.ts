@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FeedbackComponent } from 'src/app/shared/popup/feedback/feedback/feedback.component';
 import { HomeComponent } from './home.component';
 
 const routes: Routes = [
@@ -12,6 +13,10 @@ const routes: Routes = [
     path:'home',
     component: HomeComponent
   },
+  {
+    path:'feedback',
+    component: FeedbackComponent
+  }
 ];
 
 @NgModule({

@@ -7,6 +7,7 @@ import { HomeComponent } from './modules/home/home.component';
 import { HomeModule } from './modules/home/home.module';
 import { LoginModule } from './modules/login/login.module';
 import { MycoursesModule } from './modules/mycourses/mycourses.module';
+import { FeedbackComponent } from './shared/popup/feedback/feedback/feedback.component';
 
 export function loadHomeModule(){
   return HomeModule;
@@ -49,6 +50,10 @@ const routes: Routes = [
       {
         path: 'login',
         loadChildren: loadloginModule
+      },
+      {
+        path: 'feedback',
+        component: FeedbackComponent
       }
     ]
   }];

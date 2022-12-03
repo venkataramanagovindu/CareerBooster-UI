@@ -14,6 +14,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { CourseComponent } from './modules/course/course.component';
 import { CourseDetailComponent } from './modules/course/course-detail/course-detail.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FeedbackComponent } from './shared/popup/feedback/feedback/feedback.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+
+
 
 @NgModule({
   declarations: [
@@ -29,9 +36,16 @@ import { CourseDetailComponent } from './modules/course/course-detail/course-det
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    MaterialModule,
+    MatDialogModule,
+    MatSidenavModule,
+    MatListModule
   ],
-  providers: [],
+  providers: [
+    {provide: "MAT_DIALOG_DEFAULT_OPTIONS", useValue: {hasBackdrop: false}}
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

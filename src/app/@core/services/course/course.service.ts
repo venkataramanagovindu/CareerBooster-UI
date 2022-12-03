@@ -21,4 +21,10 @@ export class CourseService {
    getCourseById(id: Number): Observable<any>{
     return this._http.get(CoreURL.GET_ALL_COURSES + '/' + id);
    }
+
+   getCourseByCategoryId(id: Number): Observable<any>{
+    return this._http.get(CoreURL.GET_ALL_COURSES_BY_CATEGORY + '/' + id);
+   }
+
+  //  
 }

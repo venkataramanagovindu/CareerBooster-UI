@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, NavigationEnd, Router } from '@angular/router';
 import { AuthService } from 'src/app/@core/services/auth/auth.service';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import { FeedbackComponent } from '../../popup/feedback/feedback/feedback.component';
+
 
 @Component({
   selector: 'app-header',
@@ -16,7 +19,7 @@ export class HeaderComponent implements OnInit {
 
   // private _actiatedRouterSnapshot: ActivatedRouteSnapshot;
 
-  constructor(router: Router, activatedRoute: ActivatedRoute, authService: AuthService) { 
+  constructor(router: Router, activatedRoute: ActivatedRoute, authService: AuthService, private dialog: MatDialog) { 
     this._router = router;
     this._activatedRoute = activatedRoute;
     this._authservice = authService;
@@ -46,4 +49,23 @@ export class HeaderComponent implements OnInit {
     this._router.navigateByUrl('login');
   }
 
+  onProfileClick(evt: any){
+    debugger
+    if(evt.value == 'logout'){
+      this.logout();
+    }
+  }
+
+  openDialog() {
+    // const dialogRef = this.dialog.open(DialogContentExampleDialog);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    this.dialog.open(FeedbackComponent, dialogConfig);
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
+  }
 }

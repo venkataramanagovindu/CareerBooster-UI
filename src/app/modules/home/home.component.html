@@ -47,8 +47,8 @@
           <mat-card-subtitle>{{course.subTitle}}</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image [src]="'../../../assets/' + course.imagepath" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p style="text-overflow: ellipsis;">
+        <mat-card-content style="height: 50px;overflow: hidden;">
+          <p>
             {{course.courseDescription}}
           </p>
         </mat-card-content>

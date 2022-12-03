@@ -23,4 +23,8 @@ export class AuthService {
   public setUserId(userId: string){
     localStorage.setItem('userId', userId);
   }
+
+  get userId(): number{
+    return Number(localStorage.getItem('userId')) ?? 0;
+  }
 }

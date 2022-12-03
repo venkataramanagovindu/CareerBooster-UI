@@ -5,13 +5,15 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { LayoutComponent } from './layouts/layout/layout.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../modules/material/material.module';
+import { FeedbackComponent } from './popup/feedback/feedback/feedback.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    LayoutComponent
+    LayoutComponent,
+    FeedbackComponent
   ],
   imports: [
     CommonModule,

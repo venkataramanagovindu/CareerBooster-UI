@@ -8,3 +8,16 @@
 .example-spacer {
     flex: 1 1 auto;
   }
+
+  .btn-width-auto{
+    width: auto !important;
+  }
+
+  ::ng-deep .mat-form-field-underline{
+    display: none !important;
+  }
+
+  ::ng-deep .mat-form-field-wrapper{
+    /* display: none !important; */
+    padding: 0 !important;
+  }
