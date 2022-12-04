@@ -7,6 +7,7 @@ export class AuthService {
 
   constructor() { }
   private isUserLoggedIn: boolean = false;
+  private _showLoader: boolean = true;
 
   public isLoggedIn():boolean{
     return localStorage.getItem('isLoggedIn') == 'true'? true : false;
@@ -26,5 +27,15 @@ export class AuthService {
 
   get userId(): number{
     return Number(localStorage.getItem('userId')) ?? 0;
+  }
+
+  get showLoader(): boolean{
+
+    return this._showLoader;
+  }
+
+  set showLoader(show: boolean){
+
+    this._showLoader = show;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Course } from 'src/app/@core/models/course.model';
 import { AuthService } from 'src/app/@core/services/auth/auth.service';
@@ -9,16 +9,20 @@ import { UserCourseService } from 'src/app/@core/services/userCourse/user-course
   templateUrl: './mycourses.component.html',
   styleUrls: ['./mycourses.component.css']
 })
-export class MycoursesComponent implements OnInit {
+export class MycoursesComponent implements OnInit, AfterViewInit {
 
   private _userCourseService: UserCourseService;
   public userId!: number;
   private _authService: AuthService;
   public courses!: Array<Course>;
-  constructor(userCourseService: UserCourseService, authService: AuthService) {
+  constructor(userCourseService: UserCourseService, authService: AuthService,
+    private cd : ChangeDetectorRef) {
     this._userCourseService = userCourseService;
     this._authService = authService;
    }
+  ngAfterViewInit(): void {
+    this.cd.detectChanges();
+  }
 
   ngOnInit(): void {
     this.userId = this._authService.userId;
@@ -33,6 +37,8 @@ export class MycoursesComponent implements OnInit {
       console.log("Error");
     });
   }
+
+  
 
 
 }

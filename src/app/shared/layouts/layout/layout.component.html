@@ -13,4 +13,7 @@
       </div>
     </div>
     <app-footer></app-footer>
+    <div *ngIf="authService.showLoader" class="loader-container">
+      <app-loader class="loader"></app-loader>
+    </div>
 </div>

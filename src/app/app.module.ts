@@ -10,7 +10,7 @@ import { HeaderComponent } from './shared/layouts/header/header.component';
 import { LayoutComponent } from './shared/layouts/layout/layout.component';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './modules/material/material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { CourseComponent } from './modules/course/course.component';
 import { CourseDetailComponent } from './modules/course/course-detail/course-detail.component';
@@ -19,6 +19,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { FeedbackComponent } from './shared/popup/feedback/feedback/feedback.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import { GlobalInterceptor } from './@core/interceptor/global.interceptor';
+
 
 
 
@@ -26,7 +28,7 @@ import {MatListModule} from '@angular/material/list';
   declarations: [
     AppComponent,
     CourseComponent,
-    CourseDetailComponent
+    CourseDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,10 +42,15 @@ import {MatListModule} from '@angular/material/list';
     MaterialModule,
     MatDialogModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
   ],
   providers: [
-    {provide: "MAT_DIALOG_DEFAULT_OPTIONS", useValue: {hasBackdrop: false}}
+    {provide: "MAT_DIALOG_DEFAULT_OPTIONS", useValue: {hasBackdrop: false}},
+    {  
+      provide: HTTP_INTERCEPTORS,  
+      useClass: GlobalInterceptor,  
+      multi: true  
+    } 
   ],
   bootstrap: [AppComponent]
 })

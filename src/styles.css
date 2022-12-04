@@ -13,3 +13,7 @@ mat-card:hover{
     background-color: #dfdbe1;
     /* color: white; */
 }
+
+button{
+    cursor: pointer;
+}

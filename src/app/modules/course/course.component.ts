@@ -36,14 +36,10 @@ export class CourseComponent implements OnInit {
     this.activatedRoute.url.subscribe((d)=> {
       if(d.filter(u => u.path == 'category').length ){
         this.categoryId = Number(this.activatedRoute.snapshot.paramMap.get('categoryId'));
-        if(this.categoryId){
-          this.getCoursesByCategoryId();
-        }
       }
-      else{
-        this.getUserCourses();
-      }
+      this.getUserCourses();
     });
+    
 
   }
 
@@ -62,7 +58,7 @@ export class CourseComponent implements OnInit {
       this.userCourses = data;
       this.userCourseIds = this.userCourses.map(userCourse => userCourse.courseId);
       console.log(data);
-      this.getAllCourses();
+      this.categoryId ? this.getCoursesByCategoryId() : this.getAllCourses();
     },
     (err) => {
       console.log(err);

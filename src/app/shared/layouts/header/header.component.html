@@ -10,7 +10,17 @@
 
     <mat-toolbar color="primary" style="position: fixed;z-index: 20;justify-content: space-between;top: 0;"  class="text-center">
       <span>
-        <button mat-icon-button class="example-icon" >Logo</button>
+        <!-- <button mat-icon-button class="example-icon" >Career Booster</button> -->
+        <div style="display: flex;">
+          <div>
+            <img src="../../../../assets/logo.png" height="40px" alt="">
+
+          </div>
+          <div style="margin: 5px 10px" routerLink="/">
+            Career Booster
+          </div>
+          <span>  </span>
+        </div>
     
         <span class="example-spacer"></span>
         <!-- <div style="justify-self: end !important;"> -->
@@ -71,7 +81,7 @@
 
 
     
-        <button mat-icon-button routerLink="feedBack" class="example-icon btn-width-auto" aria-label="Example icon-button with heart icon">
+        <button mat-icon-button [routerLink]="['../', 'feedback']" class="example-icon btn-width-auto" aria-label="Example icon-button with heart icon">
           FeedBack
         </button>
     

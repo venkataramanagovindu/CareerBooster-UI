@@ -1,0 +1,15 @@
+.loader-container{
+    height: 100%;
+    background: #b29d9d;
+    opacity: 0.5;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 20;
+}
+
+.loader{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}

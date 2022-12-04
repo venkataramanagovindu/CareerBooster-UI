@@ -1,1 +1,31 @@
-hello form
+<div style="display: flex;flex-direction: column;align-items: center;">
+    
+    <h3 style="font-family: sans-serif;text-align: center;">Feedback Form</h3>
+    <p style="width: 50%;">
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Title</mat-label>
+          <input style="margin: 10px;" matInput placeholder="It's all worth buying the course.. Loved it">
+          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+          <mat-hint >Add your title here</mat-hint>
+        </mat-form-field>
+      </p>
+
+      <p style="width: 50%">
+        <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Description</mat-label>
+            <textarea matInput
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="5"
+                      cdkAutosizeMaxRows="5"></textarea>
+            <mat-hint>Add description here</mat-hint>
+
+          </mat-form-field>
+      </p>
+
+      <div style="width: 50%;">
+        <button style="float: right;" mat-raised-button color="primary" [routerLink]="['../','home']" >Sublit</button>
+
+      </div>
+
+</div>

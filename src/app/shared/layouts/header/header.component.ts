@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, NavigationEnd, Router } from '@angular/router';
 import { AuthService } from 'src/app/@core/services/auth/auth.service';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
@@ -15,7 +15,7 @@ import { User } from 'src/app/@core/models/userBase.model';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
 
   private _router : Router;
   private _activatedRoute: ActivatedRoute;
@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
   // private _actiatedRouterSnapshot: ActivatedRouteSnapshot;
 
   constructor(router: Router, activatedRoute: ActivatedRoute, authService: AuthService, private dialog: MatDialog,
-    public _courseService: CourseService, public userService: UserService) { 
+    public _courseService: CourseService, public userService: UserService, public cd: ChangeDetectorRef) { 
     this._router = router;
     this._activatedRoute = activatedRoute;
     this._authservice = authService;
@@ -45,6 +45,9 @@ export class HeaderComponent implements OnInit {
     //   .subscribe(event2 => {
     //     console.log(event2);
     //   })
+  }
+  ngAfterViewInit(): void {
+    this.cd.detectChanges();
   }
 
   ngOnInit(): void {

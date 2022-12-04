@@ -7,6 +7,9 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../modules/material/material.module';
 import { FeedbackComponent } from './popup/feedback/feedback/feedback.component';
 import {MatListModule} from '@angular/material/list';
+import { LoaderComponent } from './layouts/loader/loader.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 
@@ -15,13 +18,15 @@ import {MatListModule} from '@angular/material/list';
     HeaderComponent,
     FooterComponent,
     LayoutComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     MaterialModule,
-    MatListModule
+    MatListModule,
+    MatProgressSpinnerModule
   ],
   exports:[
     LayoutComponent
