@@ -95,7 +95,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   getUserById(){
     this.userService.getUserById(this._authservice.userId).subscribe((data: User) => {
       this.user = data;
-      this.userName = this.user.firstName + ' , ' + this.user.lastName
+      this.userName = this.user?.firstName + ' , ' + this?.user.lastName
     }, (err) => {
 
     });

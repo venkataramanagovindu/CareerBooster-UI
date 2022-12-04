@@ -59,6 +59,12 @@
           <button mat-button>LIKE</button>
           <button mat-button>SHARE</button>
         </mat-card-actions> -->
+
+        <mat-card-actions *ngIf="isLoggedIn">
+          <button style="float: right;" color="primary" [disabled]="userCourseIds?.includes(course.courseId)" (click)="assignCourse($event, course.courseId)" mat-raised-button >
+            {{userCourseIds?.includes(course.courseId) ? 'Added' : 'Add'}}</button>
+        </mat-card-actions>
+
       </mat-card>
 </mat-grid-tile>
 </mat-grid-list>
