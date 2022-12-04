@@ -1,7 +1,7 @@
 
   
 
-<mat-grid-list *ngIf="courses.length else nocourses" cols="4" rowHeight="500">
+<mat-grid-list *ngIf="courses?.length else nocourses" cols="4" rowHeight="500">
   <mat-grid-tile *ngFor="let course of courses">
     <mat-card  class="example-card">
       <div [routerLink]="['../', 'courses', course.courseId]">

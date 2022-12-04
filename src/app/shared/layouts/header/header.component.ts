@@ -3,6 +3,11 @@ import { ActivatedRoute, ActivatedRouteSnapshot, NavigationEnd, Router } from '@
 import { AuthService } from 'src/app/@core/services/auth/auth.service';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { FeedbackComponent } from '../../popup/feedback/feedback/feedback.component';
+import { FormControl } from '@angular/forms';
+import { CourseService } from 'src/app/@core/services/course/course.service';
+import { CourseCategory } from 'src/app/@core/models/CourseCategory.model';
+import { UserService } from 'src/app/@core/services/user/user.service';
+import { User } from 'src/app/@core/models/userBase.model';
 
 
 @Component({
@@ -14,12 +19,19 @@ export class HeaderComponent implements OnInit {
 
   private _router : Router;
   private _activatedRoute: ActivatedRoute;
+  public hideElement = true;
   _authservice: AuthService;
   showHeader: boolean = false;
+  toppings = new FormControl('');
+  courseCategories!: Array<CourseCategory>;
+  user!: User;
+  userName: string | undefined; 
+
 
   // private _actiatedRouterSnapshot: ActivatedRouteSnapshot;
 
-  constructor(router: Router, activatedRoute: ActivatedRoute, authService: AuthService, private dialog: MatDialog) { 
+  constructor(router: Router, activatedRoute: ActivatedRoute, authService: AuthService, private dialog: MatDialog,
+    public _courseService: CourseService, public userService: UserService) { 
     this._router = router;
     this._activatedRoute = activatedRoute;
     this._authservice = authService;
@@ -36,12 +48,13 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // debugger;
 
     this._activatedRoute.url.subscribe((u) => {
       console.log( this._activatedRoute);
     })
     console.log(this._router);
+    this.getCourseCategories();
+    this.getUserById();
   }
 
   logout(){
@@ -50,7 +63,6 @@ export class HeaderComponent implements OnInit {
   }
 
   onProfileClick(evt: any){
-    debugger
     if(evt.value == 'logout'){
       this.logout();
     }
@@ -68,4 +80,22 @@ export class HeaderComponent implements OnInit {
     //   console.log(`Dialog result: ${result}`);
     // });
   }
+
+  getCourseCategories(){
+    this._courseService.getCourseCategories().subscribe((data: Array<CourseCategory>) => {
+      this.courseCategories = data;
+    }, (err) => {
+
+    });
+  }
+
+  getUserById(){
+    this.userService.getUserById(this._authservice.userId).subscribe((data: User) => {
+      this.user = data;
+      this.userName = this.user.firstName + ' , ' + this.user.lastName
+    }, (err) => {
+
+    });
+  }
+
 }

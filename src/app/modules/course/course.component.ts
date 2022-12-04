@@ -25,7 +25,6 @@ export class CourseComponent implements OnInit {
 
   constructor(courseService: CourseService, userCourseService: UserCourseService, authService: AuthService,
     private route: Router, private activatedRoute: ActivatedRoute) {
-      debugger;
     this._courseService = courseService;
     this._userCourseService = userCourseService;
     this._authService = authService;
@@ -35,7 +34,6 @@ export class CourseComponent implements OnInit {
     this.userId = this._authService.userId;
     console.log(this.activatedRoute);
     this.activatedRoute.url.subscribe((d)=> {
-      debugger;
       if(d.filter(u => u.path == 'category').length ){
         this.categoryId = Number(this.activatedRoute.snapshot.paramMap.get('categoryId'));
         if(this.categoryId){
@@ -61,7 +59,6 @@ export class CourseComponent implements OnInit {
 
   getUserCourses(){
     this._userCourseService.getUserCourses(this.userId).subscribe((data: Array<UserCourse>) => {
-      debugger;
       this.userCourses = data;
       this.userCourseIds = this.userCourses.map(userCourse => userCourse.courseId);
       console.log(data);
@@ -73,7 +70,6 @@ export class CourseComponent implements OnInit {
   }
 
   addCourse(event: any, courseId: number){
-    debugger;
     event.stopPropagation();
     var userCourse: UserCourse = new UserCourse();
     userCourse.courseId = courseId;

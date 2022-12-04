@@ -14,3 +14,5 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
   ]
 })
 export class CourseModule { }
+
+import {MatListModule} from '@angular/material/list';

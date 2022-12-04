@@ -5,96 +5,129 @@
     Course
   </a> -->
 
-
-<mat-toolbar class="text-center" style="justify-content: space-between;">
-  <span>
-    <button mat-icon-button class="example-icon" >Logo</button>
-
-    <span class="example-spacer"></span>
-    <!-- <div style="justify-self: end !important;"> -->
-      <!-- <button (click)="logout()" style="margin-left: 25px;" mat-icon-button class="example-icon" aria-label="Example icon-button with heart icon">
-        Logout
-      </button> -->
-      <!-- 1 min -->
-
-
-
-      <!-- <span>Logout</span> -->
-    <!-- </div> -->
-
-  </span>
-
   <div>
-    <div style="display: flex;align-items: center">
-
-      <button  mat-icon-button class="example-icon btn-width-auto" aria-label="Example icon-button with menu icon" [routerLink]="['/home']">
-        Home
-      </button>
-
-      <button *ngIf="this._authservice.isLoggedIn()"   mat-icon-button class="example-icon btn-width-auto" aria-label="Example icon-button with heart icon"
-        [routerLink]="['/courses']">
-        Courses
-      </button>
-
-      <button *ngIf="this._authservice.isLoggedIn()"   mat-icon-button class="example-icon btn-width-auto" aria-label="Example icon-button with heart icon"
-      [routerLink]="['/my-courses']">
-        My Course
-      </button>
-
-    <button mat-icon-button routerLink="feedBack" class="example-icon btn-width-auto" aria-label="Example icon-button with heart icon">
-      FeedBack
-    </button>
-
-    <span *ngIf="!this._authservice.isLoggedIn()" >
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [routerLink]="['/login']">
-        Login
-      </button>
-      <span class="example-spacer"></span>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with heart icon"
-        [routerLink]="['/login/register']">
-        Register
-      </button>
-    </span>
-
-    <!-- <span *ngIf="this._authservice.isLoggedIn()">
-      <button (click)="logout()" style="margin-left: 25px;" mat-icon-button class="example-icon" aria-label="Example icon-button with heart icon">
-        Logout
-      </button> 
-    </span> -->
-
-    <mat-form-field style="width: 116px !important;font-size: 12px;" *ngIf="this._authservice.isLoggedIn()" class="btn-width-auto" appearance="fill">
-      <mat-label>User Name</mat-label>
-      <mat-select (selectionChange)="onProfileClick($event)">
-        <mat-select-trigger>
-          Heading
-          <!-- <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
-            (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
-          </span> -->
-        </mat-select-trigger>
-        <!-- <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option> -->
-        <mat-option value="profile">
-          Profile
-        </mat-option>
-        <mat-option value="logout">
-          LogOut
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
 
 
+    <mat-toolbar color="primary" style="position: fixed;z-index: 20;justify-content: space-between;top: 0;"  class="text-center">
+      <span>
+        <button mat-icon-button class="example-icon" >Logo</button>
+    
+        <span class="example-spacer"></span>
+        <!-- <div style="justify-self: end !important;"> -->
+          <!-- <button (click)="logout()" style="margin-left: 25px;" mat-icon-button class="example-icon" aria-label="Example icon-button with heart icon">
+            Logout
+          </button> -->
+          <!-- 1 min -->
+    
+    
+    
+          <!-- <span>Logout</span> -->
+        <!-- </div> -->
+    
+      </span>
+    
+      <div>
+        <div style="display: flex;align-items: center">
+    
+          <button  mat-icon-button class="example-icon btn-width-auto" aria-label="Example icon-button with menu icon" [routerLink]="['/home']">
+            Home
+          </button>
+          <div (mouseover)="hideElement = false" 
+          (mouseout)="hideElement = true">
+          <button *ngIf="this._authservice.isLoggedIn()"   mat-icon-button class="example-icon btn-width-auto" aria-label="Example icon-button with heart icon"
+            [routerLink]="['/courses']">
+           
+              Courses
+            
+            
+          </button>
+        </div>
+          <div [hidden]="hideElement" (click)="hideElement = true" (mouseover)="hideElement = false" (mouseout)="hideElement = true"  style="position:absolute;top: 75%;right: 16%; background-color: #5f2fb2;color: white;border-radius: 5px;">
+            <mat-selection-list color="primary"  [multiple]="false">
+              <mat-list-option [routerLink]="['../', 'courses','category', category.courseCategoryId]" style="color: white;" *ngFor="let category of courseCategories">
+                {{category.courseCategoryName}}
+              </mat-list-option>
+            </mat-selection-list>
+          </div>
+
+    
+          <button *ngIf="this._authservice.isLoggedIn()"   mat-icon-button class="example-icon btn-width-auto" aria-label="Example icon-button with heart icon"
+          [routerLink]="['/my-courses']">
+            My Course
+          </button>
+
+          <!-- <mat-form-field appearance="fill">
+            <mat-label>Toppings</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              <mat-select-trigger>
+                {{toppings.value?.[0] || ''}}
+                <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
+                  (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                </span>
+              </mat-select-trigger>
+              <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+            </mat-select>
+          </mat-form-field> -->
 
 
-
-
+    
+        <button mat-icon-button routerLink="feedBack" class="example-icon btn-width-auto" aria-label="Example icon-button with heart icon">
+          FeedBack
+        </button>
+    
+        <span *ngIf="!this._authservice.isLoggedIn()" >
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [routerLink]="['/login']">
+            Login
+          </button>
+          <span class="example-spacer"></span>
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with heart icon"
+            [routerLink]="['/login/register']">
+            Register
+          </button>
+        </span>
+    
+        <!-- <span *ngIf="this._authservice.isLoggedIn()">
+          <button (click)="logout()" style="margin-left: 25px;" mat-icon-button class="example-icon" aria-label="Example icon-button with heart icon">
+            Logout
+          </button> 
+        </span> -->
+    
+        <mat-form-field style="width: 116px !important;font-size: 12px;" *ngIf="this._authservice.isLoggedIn()" class="btn-width-auto" appearance="fill">
+          <mat-label>{{userName}}</mat-label>
+          <mat-select (selectionChange)="onProfileClick($event)">
+            <!-- <mat-select-trigger> -->
+              <!-- Heading -->
+              <!-- <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
+                (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+              </span> -->
+            <!-- </mat-select-trigger> -->
+            <!-- <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option> -->
+            <!-- <mat-option value="profile">
+              Profile
+            </mat-option> -->
+            <mat-option value="logout">
+              LogOut
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+    
+    
+    
+    
+    
+      </div>
+      </div>
+    
+    
+    
+    
+    
+    
+    </mat-toolbar>
+    
   </div>
-  </div>
 
-
-
-
-
-
-</mat-toolbar>
 
 
 

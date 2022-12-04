@@ -55,7 +55,6 @@ export class LoginComponent implements OnInit {
       var formData = this.form.getRawValue()
       this._userSerice.login(formData.username, formData.password).subscribe({
         next: (data: LoginModel) => {
-          debugger;
           console.log("Success");
           // this._router.navigate('home');
           if(data.isLoggedIn){

@@ -27,5 +27,9 @@ export class UserService {
     //   })
         return this._httpClient.post<any>(CoreURL.REGISTER, obj)
   }
+
+  getUserById(id: Number): Observable<any>{
+    return this._httpClient.get(CoreURL.GET_USER_BY_ID + id);
+  }
 }
 

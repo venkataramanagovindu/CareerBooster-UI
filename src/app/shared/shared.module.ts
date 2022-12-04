@@ -6,6 +6,8 @@ import { LayoutComponent } from './layouts/layout/layout.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../modules/material/material.module';
 import { FeedbackComponent } from './popup/feedback/feedback/feedback.component';
+import {MatListModule} from '@angular/material/list';
+
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { FeedbackComponent } from './popup/feedback/feedback/feedback.component'
   imports: [
     CommonModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    MatListModule
   ],
   exports:[
     LayoutComponent

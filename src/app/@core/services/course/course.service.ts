@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CoreURL } from '../core.url';
 import { Observable } from 'rxjs';
 import { Course } from '../../models/course.model';
+import { CourseCategory } from '../../models/CourseCategory.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,14 @@ export class CourseService {
 
    getCourseByCategoryId(id: Number): Observable<any>{
     return this._http.get(CoreURL.GET_ALL_COURSES_BY_CATEGORY + '/' + id);
+   }
+
+   getCourseContentById(id: Number): Observable<any>{
+    return this._http.get(CoreURL.GET_COURSE_CONTENT + '/' + id);
+   }
+
+   getCourseCategories(): Observable<any>{
+    return this._http.get(CoreURL.GET_COURSE_CATEGORIES);
    }
 
   //  
